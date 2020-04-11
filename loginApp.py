@@ -1,6 +1,8 @@
 import tkinter as tk
 from PIL import ImageTk, Image
 import os
+import mysql.connector
+from mysql.connector import Error
 
 class AppFoto(tk.Frame):
   def __init__(self,master = None):
@@ -21,6 +23,7 @@ class AppFoto(tk.Frame):
     # Frame login
     self.loginFrame = tk.LabelFrame(self, text = "Login")
     self.loginFrame.pack(fill=tk.BOTH, expand=True)
+
     # Frame User
     self.frameUser = tk.Frame(self.loginFrame)
     self.frameUser.pack(fill=tk.BOTH, expand=True)
@@ -29,6 +32,7 @@ class AppFoto(tk.Frame):
     self.labelUser.pack(fill=tk.BOTH, expand=True, side = tk.LEFT)
     self.inputUser = tk.Entry(self.frameUser, text = "")
     self.inputUser.pack(fill=tk.BOTH, expand=True, side = tk.LEFT)
+
     # Pass login
     self.passFrame = tk.Frame(self.loginFrame)
     self.passFrame.pack(fill=tk.BOTH, expand=True)
