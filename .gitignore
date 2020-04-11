@@ -107,6 +107,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+venv/
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
