@@ -6,6 +6,9 @@ import mysql.connector
 from mysql.connector import Error
 from datetime import datetime
 
+# Punto 2
+# Importar programa externo Python, encargado de enviar notificaciones whatsapp
+import whatsapp
 
 
 class AppFoto(tk.Frame):
@@ -70,9 +73,16 @@ class AppFoto(tk.Frame):
       if cursor.rowcount <= 0:
         messagebox.showerror("Error", "Login y/o clave inválidos")
         state = "fallido"
+        
+        # Ejecutar programa para enviar notificacion whatsapp
+        whatsapp.enviarMensaje('incorrecto', self.inputUser.get())
       else:
         messagebox.showinfo("Bienvenido", "Ingreso exitoso.")
         state = "exitoso"
+
+        # Ejecutar programa para enviar notificacion whatsapp
+        whatsapp.enviarMensaje('correcto', self.inputUser.get())
+
       mysql_insert_query = "INSERT INTO `acces-log` (user, password, state) VALUES ('{0}', '{1}', '{2}')".format(self.inputUser.get(), self.inputPass.get(),state)
       cursor.execute(mysql_insert_query)
       connection.commit()
