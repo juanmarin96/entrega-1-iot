@@ -62,7 +62,7 @@ class AppFoto(tk.Frame):
       connection = mysql.connector.connect(host='localhost',
                                          database='login-app',
                                          user='root',
-                                         password='')
+                                         password='root')
       if not connection.is_connected():
         print("No se pudo conectar a la base de datos")
         raise Exception("Error conectandose a la base de datos")
