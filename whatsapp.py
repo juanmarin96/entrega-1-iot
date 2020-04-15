@@ -3,8 +3,8 @@ from twilio.rest import Client
 from datetime import datetime
 
 # Datos de API Twilio, tomados de twilio.com/console
-account_sid = 'XXXX'
-auth_token = 'XXXX'
+account_sid = 'AC625543bd75e3750ba64e899852948753'
+auth_token = '9bd80bde092e3c21bb5f1e924784f981'
 # Crear nuevo cliente
 client = Client(account_sid, auth_token)
 
@@ -35,7 +35,7 @@ def enviarMensaje(resultado_ingreso, usuario):
     message = client.messages.create(
         body = mensaje,
         from_='whatsapp:+14155238886',
-        to='whatsapp:+573207853636'
+        to='whatsapp:+573137492086'
     )
 
     print(message.sid)
